@@ -1,8 +1,4 @@
-<style>
-  body {
-    font-size: 20px;
-  }
-</style>
+
 # Paper
 
 This repository is the official implementation of [RCGAN-Based Inverse Design and Multi-Objective Optimization Using Customizable Weight Vectors for Lattice Structure Design ](xxx). 
