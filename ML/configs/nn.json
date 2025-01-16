@@ -1,6 +1,6 @@
 {
     "dataset_path": "ML/dataset",
-    "pth_address":"PTH_files",
+    "pth_address":"your_pth_path",
 
     "cellular_forward":{
         "lr":2e-1,
