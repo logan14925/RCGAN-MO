@@ -14,9 +14,6 @@ from sklearn.metrics import r2_score
 seed = 51
 torch.manual_seed(seed)
 
-
-
-
 all_predictions = []
 all_targets = []
 
@@ -66,10 +63,6 @@ plt.figure(figsize=(10, 8))
 # Scatter plot for load prediction vs. target with solid blue circles (RGB = 20, 81, 124)
 blue_color = (225/255, 0/255, 0/255)  # RGB normalized to [0, 1] range
 plt.scatter(real_tragets_np, real_preds_np, color='black', label='Forward surrogate model', marker='o', alpha=0.7)
-
-# Scatter plot for r prediction vs. target (optional)
-# plt.scatter(all_targets[:, 1], all_predictions[:, 1], facecolors='none', edgecolors='red', label='r')
-# plt.scatter(all_targets[:, 2], all_predictions[:, 2], facecolors='none', edgecolors='black', label='r')
 
 # plt.title('Forward Predictions vs. Targets', pad=10)
 plt.xlabel('Targets', fontweight='bold', labelpad=1)

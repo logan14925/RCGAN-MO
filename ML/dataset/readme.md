@@ -1,23 +1,13 @@
 # Dataset
 
-## Data Structure
+## Dataset for machine learning trainging
 
-**dataset**/
+```ML\dataset\data_for_ml.csv```
 
-​	--**input**:/ Cellular geometry parameters(before Abaqus Processing)
+| r | d1 | d2 | d3 | d4 | l |
+| -- | -- | -- | -- |  -- | -- | 
+xx|xx|xx|xx|xx|xx|
 
-​	--**model_data**/: dataset for training
+## Data for FEM validation
 
-​		--**dataset_test**/:  temporary dataset for debugging 
-
-​			--**CVAE_test.csv**
-
-​		--**data_process.ipynb**: dataset construction and preview of data relationship
-
-​		--**forward_data_type0.csv**: Dataset for forward network of type 0 structure
-
-​		--**forward_data_type3.csv**: Dataset for forward network of type 3 structure
-
-​		--**model_data.csv**:  Dataset embodying all information processed from odb
-
-​	--**get_dataset.py** : Generate the model_data file
+```ML\dataset\FEM_val_data.csv```

@@ -251,7 +251,6 @@ plt.legend()
 
 # Adjust layout
 plt.tight_layout()
-# plt.savefig(os.path.join(visualization_path, 'RCGAN_Loss_Curves.png'), dpi=300, bbox_inches='tight', transparent=True)
 
 # Show the figure
 plt.show()

@@ -102,7 +102,6 @@ plt.xlabel('Epoch')
 plt.ylabel('Loss')
 # plt.title('Training and Test Loss Curve')
 plt.legend()
-plt.savefig(os.path.join(appendix_path, 'forward_loss.png'), dpi=300, bbox_inches='tight', transparent=True)
 plt.tight_layout()
 plt.show()
 

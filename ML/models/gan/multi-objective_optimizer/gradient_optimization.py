@@ -52,8 +52,8 @@ class LossCalculation:
     def LossTotal(self, weights):
         weights = torch.tensor(weights, dtype=torch.float32)
         weights_trans = weights
-        # weights_trans[0] =  torch.pow(10, -7 + 2 *0.8 * weights[0])
-        # weights_trans[1] =  torch.pow(10, -7 + 2 *0.55 * weights[1])
+        weights_trans[0] =  torch.pow(10, -7 + 2 *0.8 * weights[0])
+        weights_trans[1] =  torch.pow(10, -7 + 2 *0.55 * weights[1])
 
         loss_terms = [
             self.LossR(),
@@ -171,13 +171,6 @@ for label_property in label_propertys:
     real_array = d_minmax_normal(input_array, min_cellular, max_cellular)
 
     print('While weights is {}, Real input data is {}'.format(weights, real_array.cpu().numpy()))
-
-    # 指定保存路径
-    save_path = r"E:\01_Graduate_projects\Articles\Cellular_Inverse_design\imgs\MO_imgs2"
-
-    # 确保保存路径存在
-    if not os.path.exists(save_path):
-        os.makedirs(save_path)
 
     epochs = range(len(errors))
 

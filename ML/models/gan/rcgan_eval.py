@@ -1,23 +1,13 @@
 import torch
-from torch import nn
-import torch.nn.functional as F
-from torch import optim
-from torch.utils.data import DataLoader
-import utils
 import os
 import sys
 import matplotlib.pyplot as plt
-from tqdm import tqdm
-import numpy as np
-import pandas as pd
+
 file_folder_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(file_folder_path)
 from train_config import *
 import seaborn as sns
 import time  # 导入 time 模块
-from sklearn.metrics import r2_score
-from scipy.ndimage import gaussian_filter
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 def plot_recon_and_pred(labels, recons, preds, save_path=None):
     num_dimensions = recons[0].shape[1]  # Get the number of features for recon
     fig, axes = plt.subplots(len(labels), num_dimensions + 1, figsize=(30, 0.6 * len(labels) * (num_dimensions + 1)))
@@ -83,7 +73,7 @@ forward_net.load_state_dict(torch.load(cellular_pth_path))
 forward_net.eval()
 
 recons, preds, conds = [], [], []
-img_path = os.path.join(appendix_path, 'sample_distribution_with_preds.png')
+img_path = None
 start_time = time.time()
 
 # Generate data and predictions
@@ -108,18 +98,4 @@ print(f"Total time taken to generate all label corresponding data: {total_time:.
 
 plot_recon_and_pred(label_propertys, recons, preds, img_path)
 
-# Filter data
-filtered_recons, filtered_preds, filtered_conds = [], [], []
 
-for idx, (label_property, recon, pred, cond) in enumerate(zip(label_propertys, recons, preds, conds)):
-    condition_diff = abs(label_property - pred)
-    valid_mask = (condition_diff < error_threshold).squeeze()
-
-    filtered_recon = recon[valid_mask]
-    filtered_pred = pred[valid_mask]
-
-    filtered_recons.append(filtered_recon)
-    filtered_preds.append(filtered_pred)
-    filtered_conds.append(cond)
-
-print(f"Total number of elements in filtered_pred_masses: {total_elements}")
