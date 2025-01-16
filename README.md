@@ -1,11 +1,15 @@
-
+<style>
+  body {
+    font-size: 18px;
+  }
+</style>
 # Paper
 
 This repository is the official implementation of [RCGAN-Based Inverse Design and Multi-Objective Optimization Using Customizable Weight Vectors for Lattice Structure Design ](xxx). 
 
 ## Abstract
 
-    Mechanical metamaterials are engineered structures designed to exhibit unique and extraordinary mechanical properties. Traditionally, their design relied on trial-and-error methods, which are slow and limited. With the rise of machine learning, inverse design methods now provide a more efficient and systematic approach. These methods allow for a broader exploration of material properties and support the integration of multifunctionality, significantly speeding up the design process. Despite the many advantages of inverse design, lattice structures often require a trade-off between compactness and manufacturability to achieve the same target properties. Furthermore, these trade-offs must be dynamically adjusted based on different additive manufacturing conditions. To address this, we propose the RCGAN-MO architecture, which simultaneously handles the inverse design and adjustable multi-objective optimization of mechanical metamaterials. The RCGAN-MO consists of two trained neural networks: a generator and a predictor, along with a weighted multi-objective optimizer, trained on a FEM dataset. As a case study, the RCGAN-MO architecture is applied to the inverse design of the relative compressive elastic moduli  for a lattice unit cell, and the impact of different weight vector values in the multi-objective optimizer is examined through 3D printed samples. The results show that: 1) The generator achieves high accuracy in both FEM simulations and compression tests, with R² values of 99.62% and 86.99%; 2) Optimizing for compactness makes the lattice unit cell harder to print, while prioritizing manufacturability improves printability, although it leads to an increase in lattice size.
+Mechanical metamaterials are engineered structures designed to exhibit unique and extraordinary mechanical properties. Traditionally, their design relied on trial-and-error methods, which are slow and limited. With the rise of machine learning, inverse design methods now provide a more efficient and systematic approach. These methods allow for a broader exploration of material properties and support the integration of multifunctionality, significantly speeding up the design process. Despite the many advantages of inverse design, lattice structures often require a trade-off between compactness and manufacturability to achieve the same target properties. Furthermore, these trade-offs must be dynamically adjusted based on different additive manufacturing conditions. To address this, we propose the RCGAN-MO architecture, which simultaneously handles the inverse design and adjustable multi-objective optimization of mechanical metamaterials. The RCGAN-MO consists of two trained neural networks: a generator and a predictor, along with a weighted multi-objective optimizer, trained on a FEM dataset. As a case study, the RCGAN-MO architecture is applied to the inverse design of the relative compressive elastic moduli  for a lattice unit cell, and the impact of different weight vector values in the multi-objective optimizer is examined through 3D printed samples. The results show that: 1) The generator achieves high accuracy in both FEM simulations and compression tests, with R² values of 99.62% and 86.99%; 2) Optimizing for compactness makes the lattice unit cell harder to print, while prioritizing manufacturability improves printability, although it leads to an increase in lattice size.
 
 
 
@@ -28,9 +32,13 @@ ML\dataset\data_for_ml.csv
 
 You can download pretrained models here:
 
-- [Forward prediction model](https://drive.google.com/mymodel.pth)
-- 
-- [Inverse design model](https://drive.google.com/mymodel.pth)
+- [Pre-trained models](https://drive.google.com/drive/folders/1NSqfPPsY1RPsla_znxMMUr7pr5FpA_6i?usp=drive_link)  
+  - Forward prediction model
+  - Inverse design model
+    - Regressor
+    - Generator
+    - Discriminitor
+
 
 ## Parameter Configuration
 
@@ -40,6 +48,8 @@ Most hyperparameters are defined through the configuration file. If changes are 
 ML\configs\nn.json
 ```
 :exclamation: The `pth_address` in the JSON file refers to the location of the trained `.pth` model file. You can either train the model yourself by following the steps below or directly use `pre-trained models` and copy files to the `pth_address` directory.
+
+
 ## Training
 
 The model definition and global variable declarations can be found at:
@@ -74,13 +84,19 @@ You can evaluate the model using the following methods::
 
 Our model achieves the following performance on :
 
-### [Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
+### Accuracy
 
 | Model name         | R2  |
 | ------------------ |---------------- | 
 | Forward prediction   |     99.72%         |
 | Inverse design   |     97.2%         |
 
-![image](https://github.com/logan14925/RCGAN-MO.git/fig/gen_img.jpg)
+<div style="text-align: center;">
+  <img src="figs/gen_img.jpg" alt="Generated Image" width="800" />
+  <p>Generated results(target = [0.0294,0.0406, 0.0517, 0.0685])</p>
+</div>
+
+
+
 ## Contributing
 

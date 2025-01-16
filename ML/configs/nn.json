@@ -1,6 +1,6 @@
 {
     "dataset_path": "ML/dataset",
-    "pth_address":"your_pth_path",
+    "pth_address":"E:/01_Graduate_projects/Articles/Cellular_Inverse_design/RCGAN-MO_Project/pth_files",
 
     "cellular_forward":{
         "lr":2e-1,
