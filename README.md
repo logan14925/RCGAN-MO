@@ -87,12 +87,23 @@ Our model achieves the following performance on :
 | Forward prediction   |     99.72%         |
 | Inverse design   |     97.2%         |
 
+### Generative evaluation
+
+RCGAN generation capability verification  (target = [0.0294,0.0406, 0.0517, 0.0685])
+
 <div style="text-align: center;">
   <img src="figs/gen_img.jpg" alt="Generated Image" width="800" />
-  <p>Generated results(target = [0.0294,0.0406, 0.0517, 0.0685])</p>
+  <p>Generated results</p>
 </div>
 
+## Citation
+If you use RCGAN-MO framework in your research or application, please consider citing it!
 
-
-## Contributing
-
+```citation
+@article{,
+    title={},
+    author={},
+    journal={},
+    year={2025},
+}
+```
